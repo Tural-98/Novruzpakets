@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>My Way Village | Novruz & Ramazan 2026</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f3b2c 0%, #1d5b44 100%);
+            min-height: 100vh;
+            padding: 16px 12px 30px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Flower rain - super yumşaq */
+        .flower-rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        .flower {
+            position: absolute;
+            color: rgba(255, 223, 128, 0.4);
+            font-size: 1.5rem;
+            animation: fall linear infinite;
+            filter: drop-shadow(0 4px 12px rgba(255,215,0,0.2));
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(110vh) rotate(1080deg);
+            }
+        }
+
+        /* Main container - ultra premium */
+        .menu-container {
+            max-width: 480px;
+            margin: 0 auto;
+            background: #fffbf2;
+            border-radius: 48px 48px 32px 32px;
+            box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.6), 0 0 0 3px #e9c468 inset, 0 0 0 6px #ffffff30 inset;
+            overflow: hidden;
+            position: relative;
+            z-index: 10;
+            backdrop-filter: blur(2px);
+            transform: translateY(0);
+            transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.3, 1);
+        }
+
+        .menu-container:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 35px 70px -15px black, 0 0 0 3px #f3cd81 inset;
+        }
+
+        /* Premium banner */
+        .festival-banner {
+            background: linear-gradient(115deg, #aa3f24 0%, #c4912e 50%, #186b45 100%);
+            padding: 16px 20px;
+            text-align: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.3rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border-bottom: 4px solid #ffdb8e;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .festival-banner:hover {
+            letter-spacing: 2.5px;
+            background: linear-gradient(115deg, #b84d30, #d6a53d, #218053);
+        }
+
+        .festival-banner::before,
+        .festival-banner::after {
+            content: "✨";
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.6rem;
+            opacity: 0.9;
+            transition: all 0.3s;
+        }
+
+        .festival-banner::before { left: 15px; animation: shineLeft 2s infinite; }
+        .festival-banner::after { right: 15px; animation: shineRight 2s infinite; }
+
+        @keyframes shineLeft {
+            0%, 100% { left: 15px; opacity: 0.7; }
+            50% { left: 10px; opacity: 1; transform: translateY(-50%) rotate(10deg); }
+        }
+
+        @keyframes shineRight {
+            0%, 100% { right: 15px; opacity: 0.7; }
+            50% { right: 10px; opacity: 1; transform: translateY(-50%) rotate(-10deg); }
+        }
+
+        /* Kampaniya banneri - 5% ENDİRİM */
+        .campaign-banner {
+            background: #dd9933;
+            background: linear-gradient(145deg, #f6b83e, #d4922b);
+            margin: 16px 16px 10px;
+            padding: 18px 14px;
+            border-radius: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            border: 3px solid white;
+            box-shadow: 0 10px 0 #9b691c, 0 10px 25px rgba(0,0,0,0.25);
+            transform: scale(1);
+            transition: all 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+            cursor: default;
+        }
+
+        .campaign-banner:hover {
+            transform: scale(1.02);
+            box-shadow: 0 12px 0 #9b691c, 0 18px 30px rgba(0,0,0,0.3);
+        }
+
+        .campaign-icon {
+            font-size: 2.4rem;
+            animation: bounce 1.5s infinite;
+            filter: drop-shadow(0 4px 4px #00000030);
+        }
+
+        .campaign-text {
+            font-weight: 800;
+            color: #281b09;
+            font-size: 1.2rem;
+            text-align: center;
+            line-height: 1.3;
+            text-shadow: 0 2px 4px #ffffff80;
+        }
+
+        .campaign-highlight {
+            background: #832a1a;
+            color: #ffdd99;
+            padding: 4px 12px;
+            border-radius: 40px;
+            font-size: 1.5rem;
+            white-space: nowrap;
+            display: inline-block;
+            margin-left: 6px;
+            border: 2px solid #ffe28a;
+            animation: pulseGlow 2s infinite;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 8px #ffd966; }
+            50% { box-shadow: 0 0 18px #ffb347; }
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(165deg, #166a47, #0b462f);
+            padding: 28px 20px 20px;
+            text-align: center;
+            color: #ffefc0;
+            border-bottom: 4px solid #e6b450;
+            position: relative;
+            transition: 0.3s;
+        }
+
+        .header:hover {
+            background: linear-gradient(165deg, #1b7b52, #0f583b);
+        }
+
+        .hotel-name {
+            font-size: 2.1rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-shadow: 0 4px 15px #0a2f1e;
+            color: #ffeb99;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 18px;
+            transition: 0.3s;
+        }
+
+        .hotel-name:hover {
+            text-shadow: 0 4px 20px #ffd966, 0 0 30px gold;
+            transform: scale(1.02);
+        }
+
+        .bayram-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 12px 20px;
+            border-radius: 60px;
+            backdrop-filter: blur(10px);
+            border: 2px solid #e6b450;
+            margin-top: 8px;
+            transition: 0.3s;
+        }
+
+        .bayram-row:hover {
+            gap: 60px;
+            background: rgba(0, 0, 0, 0.3);
+            border-color: #ffdb8e;
+        }
+
+        .novruz-badge, .ramadan-badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            font-size: 1.3rem;
+            transition: 0.2s;
+        }
+
+        .novruz-badge:hover, .ramadan-badge:hover {
+            transform: translateY(-3px);
+            text-shadow: 0 0 12px white;
+        }
+
+        .badge-icon {
+            font-size: 1.8rem;
+            animation: float 2.5s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px) rotate(5deg); }
+        }
+
+        /* Service cards - interaktiv */
+        .service-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin: 20px 16px 12px;
+        }
+
+        .service-card {
+            background: #ffffff;
+            border-radius: 50px;
+            padding: 20px 24px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            box-shadow: 0 12px 25px -8px rgba(0, 0, 0, 0.15);
+            border: 2px solid #edd49b;
+            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.3, 1.2);
+            cursor: default;
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px) scale(1.01);
+            box-shadow: 0 22px 35px -12px rgba(0, 0, 0, 0.25);
+            border-color: #e6b450;
+            background: #fffffffa;
+        }
+
+        .service-card.live-music {
+            background: linear-gradient(115deg, #fcf6e9, #fff7e6);
+            border-color: #c4a24b;
+        }
+
+        .service-card.live-music:hover {
+            background: linear-gradient(115deg, #fff2d7, #ffefd1);
+        }
+
+        .service-icon {
+            font-size: 2.6rem;
+            min-width: 60px;
+            text-align: center;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+            transition: 0.3s;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.15) rotate(3deg);
+        }
+
+        .service-text {
+            flex: 1;
+            font-weight: 600;
+            color: #1d4f38;
+            font-size: 1.15rem;
+            line-height: 1.4;
+            transition: 0.2s;
+        }
+
+        .service-badge {
+            background: #e6b450;
+            color: #0b402f;
+            padding: 8px 16px;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+            box-shadow: 0 5px 0 #9e762e;
+            transition: 0.2s;
+        }
+
+        .service-card:hover .service-badge {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 0 #9e762e;
+        }
+
+        /* WhatsApp telefon bloku - KLİKLƏNƏN */
+        .whatsapp-section {
+            background: #0f4d33;
+            margin: 18px 16px;
+            padding: 16px 22px;
+            border-radius: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 18px;
+            border: 3px solid #f3cd81;
+            box-shadow: 0 12px 0 #0a3522;
+            transition: all 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .whatsapp-section:hover {
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 18px 0 #0a3522, 0 20px 30px rgba(0,0,0,0.3);
+            border-color: #ffe28a;
+            background: #156f48;
+        }
+
+        .whatsapp-section:active {
+            transform: translateY(4px);
+            box-shadow: 0 8px 0 #0a3522;
+        }
+
+        .wa-icon-large {
+            background: #25D366;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.4rem;
+            color: white;
+            box-shadow: 0 6px 0 #128C7E;
+            transition: 0.3s;
+        }
+
+        .whatsapp-section:hover .wa-icon-large {
+            transform: rotate(8deg) scale(1.1);
+            background: #20b85f;
+        }
+
+        .wa-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #fee3a0;
+            text-decoration: none;
+            letter-spacing: 1.5px;
+            transition: 0.2s;
+        }
+
+        .whatsapp-section:hover .wa-number {
+            color: #fff2c9;
+            text-shadow: 0 0 12px #ffdb8e;
+        }
+
+        /* Rooms */
+        .section-head {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin: 28px 16px 18px;
+            transition: 0.3s;
+        }
+
+        .section-head:hover {
+            transform: translateX(5px);
+        }
+
+        .section-head h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1f4a2c;
+            letter-spacing: -0.5px;
+        }
+
+        .head-ornament {
+            background: #e6b450;
+            width: 10px;
+            height: 44px;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+
+        .section-head:hover .head-ornament {
+            height: 50px;
+            background: #f3c15a;
+        }
+
+        .rooms-container {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin: 0 16px 24px;
+        }
+
+        .room-item {
+            background: white;
+            border-radius: 30px 20px 20px 30px;
+            padding: 18px 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
+            border-left: 14px solid #e6b450;
+            border-right: 1px solid #f0e1c0;
+            transition: all 0.25s cubic-bezier(0.2, 0.9, 0.3, 1.2);
+            cursor: default;
+        }
+
+        .room-item:hover {
+            transform: translateX(10px) scale(1.01);
+            border-left-color: #c4422a;
+            box-shadow: 0 18px 30px -10px rgba(0, 0, 0, 0.2);
+        }
+
+        .room-info h3 {
+            font-weight: 700;
+            color: #1a4f3a;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            transition: 0.2s;
+        }
+
+        .room-item:hover .room-info h3 {
+            color: #b2472c;
+        }
+
+        .room-info p {
+            color: #7b623a;
+            font-size: 0.88rem;
+            font-weight: 500;
+        }
+
+        .room-price {
+            background: #fef1d5;
+            color: #1e5e41;
+            font-weight: 800;
+            font-size: 1.4rem;
+            padding: 8px 18px;
+            border-radius: 40px;
+            border: 2px solid #e6b450;
+            box-shadow: 0 4px 0 #c49a2b;
+            white-space: nowrap;
+            transition: 0.2s;
+        }
+
+        .room-item:hover .room-price {
+            background: #f7e3bc;
+            transform: scale(1.05);
+            box-shadow: 0 6px 0 #c49a2b;
+        }
+
+        /* Restaurant premium */
+        .restaurant-showcase {
+            background: #281e13;
+            margin: 20px 16px;
+            border-radius: 40px;
+            padding: 28px 20px;
+            border: 3px solid #e6b450;
+            background-image: radial-gradient(circle at 80% 10%, #5f482b 3px, transparent 3px);
+            background-size: 28px 28px;
+            transition: 0.4s;
+        }
+
+        .restaurant-showcase:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 25px 35px -15px #000000cc;
+            border-color: #f3cd81;
+        }
+
+        .showcase-title {
+            color: #ffde9e;
+            font-size: 1.9rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 10px;
+            text-shadow: 0 4px 12px #00000080;
+            transition: 0.2s;
+        }
+
+        .restaurant-showcase:hover .showcase-title {
+            letter-spacing: 2px;
+        }
+
+        .menu-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 14px;
+            margin-top: 15px;
+        }
+
+        .tag {
+            background: #fedb9f;
+            padding: 10px 22px;
+            border-radius: 50px;
+            font-weight: 600;
+            color: #22180f;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 5px 0 #ad7f35;
+            transition: all 0.2s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+            cursor: default;
+        }
+
+        .tag:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 9px 0 #ad7f35;
+            background: #ffe6ae;
+        }
+
+        /* Sweets row */
+        .sweets-row {
+            background: #fbebd2;
+            margin: 20px 16px;
+            padding: 22px;
+            border-radius: 70px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+            border: 3px solid #e6b450;
+            box-shadow: 0 14px 0 #b28634;
+            transition: 0.3s;
+        }
+
+        .sweets-row:hover {
+            transform: scale(1.01);
+            box-shadow: 0 18px 0 #b28634;
+        }
+
+        .sweet-item {
+            background: white;
+            padding: 12px 24px;
+            border-radius: 60px;
+            font-weight: 600;
+            color: #1e4f32;
+            font-size: 1.1rem;
+            border: 2px solid #e6b450;
+            box-shadow: 0 5px 0 #c49a2b;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.2s;
+            cursor: default;
+        }
+
+        .sweet-item:hover {
+            transform: translateY(-5px) rotate(1deg);
+            box-shadow: 0 9px 0 #c49a2b;
+            background: #fff7e9;
+        }
+
+        /* Full menu button */
+        .fullmenu-btn {
+            margin: 20px 16px 10px;
+            background: #e6b450;
+            border-radius: 70px;
+            padding: 18px 24px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.25rem;
+            border: 3px solid white;
+            box-shadow: 0 10px 0 #9a752a;
+            transition: 0.15s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+            cursor: pointer;
+        }
+
+        .fullmenu-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 0 #9a752a, 0 20px 25px -10px black;
+            background: #edc163;
+        }
+
+        .fullmenu-btn:active {
+            transform: translateY(5px);
+            box-shadow: 0 6px 0 #9a752a;
+        }
+
+        .fullmenu-btn a {
+            color: #1a412b;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        /* GİZLİ MENYU - YALNIZ SƏNİN GÖNDƏRDİYİN YEMƏKLƏR */
+        .full-menu-section {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.7s ease-in-out, opacity 0.5s ease-in-out, margin 0.3s ease;
+            margin: 0 16px;
+            background: #fff9eb;
+            border-radius: 40px;
+            border: 2px solid #e6b450;
+            box-shadow: 0 20px 30px -15px rgba(0,0,0,0.5);
+        }
+
+        .full-menu-section.show {
+            max-height: 4000px; /* menyu uzun olduğu üçün böyük dəyər */
+            opacity: 1;
+            margin: 25px 16px;
+            padding: 22px 16px;
+        }
+
+        .full-menu-inner {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .menu-category {
+            background: white;
+            border-radius: 32px;
+            padding: 18px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.04);
+            border: 1px solid #edd49b;
+            transition: 0.2s;
+        }
+
+        .menu-category:hover {
+            transform: translateX(4px);
+            border-color: #c49a2b;
+            box-shadow: 0 12px 22px rgba(0,0,0,0.08);
+        }
+
+        .category-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #b2472c;
+            border-bottom: 3px solid #e6b450;
+            padding-bottom: 10px;
+            margin-bottom: 16px;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 8px;
+            border-bottom: 1px dashed #eedbba;
+            transition: 0.2s;
+        }
+
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+
+        .menu-item:hover {
+            background: #fef6e6;
+            border-radius: 40px;
+            padding-left: 16px;
+            padding-right: 16px;
+        }
+
+        .item-name {
+            font-weight: 500;
+            color: #2d4a33;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.05rem;
+        }
+
+        .item-price {
+            background: #f3e3c9;
+            padding: 4px 16px;
+            border-radius: 40px;
+            font-weight: 600;
+            color: #1a412b;
+            font-size: 1rem;
+            transition: 0.2s;
+        }
+
+        .menu-item:hover .item-price {
+            background: #e6b450;
+            color: #22180f;
+        }
+
+        .close-menu {
+            text-align: center;
+            margin-top: 16px;
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            padding: 14px;
+            background: #b2472c;
+            border-radius: 50px;
+            transition: all 0.2s;
+            border: 2px solid #ffcc80;
+        }
+
+        .close-menu:hover {
+            background: #c45d3c;
+            transform: scale(1.02);
+            letter-spacing: 1px;
+        }
+
+        /* Footer */
+        .info-footer {
+            background: #e6dcc0;
+            margin: 30px 16px 16px;
+            padding: 26px 22px;
+            border-radius: 50px 50px 30px 30px;
+            color: #1d4533;
+            border: 3px solid #e6b450;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .info-footer:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 22px 35px -15px black;
+            background: #ede3c9;
+        }
+
+        .info-footer .address {
+            font-size: 1.05rem;
+            margin-bottom: 18px;
+            font-weight: 600;
+        }
+
+        .info-footer .highlight {
+            background: #b2472c;
+            color: #ffe7a3;
+            padding: 16px 12px;
+            border-radius: 70px;
+            font-weight: 700;
+            font-size: 1.15rem;
+            margin: 16px 0;
+            transition: 0.2s;
+        }
+
+        .info-footer:hover .highlight {
+            background: #c45d3c;
+        }
+
+        .footer-phone {
+            font-size: 2rem;
+            font-weight: 800;
+            margin: 18px 0 10px;
+        }
+
+        .footer-phone a {
+            color: #1d4533;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        .footer-phone a:hover {
+            color: #b2472c;
+            text-decoration: underline wavy #e6b450;
+        }
+
+        .quote {
+            font-style: italic;
+            color: #3f5c41;
+            font-size: 1rem;
+        }
+
+        /* fade-up animasiyaları */
+        .fade-up {
+            animation: fadeUp 0.5s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+        .delay-5 { animation-delay: 0.5s; }
+        .delay-6 { animation-delay: 0.6s; }
+    </style>
+</head>
+<body>
+    <div class="flower-rain" id="flowerRain"></div>
+
+    <div class="menu-container">
+        <!-- Festival banner -->
+        <div class="festival-banner">
+            🌱 NOVRUZ & RAMAZAN 2026 🌙
+        </div>
+
+        <!-- YENİ: 5% ENDİRİM KAMPANİYASI -->
+        <div class="campaign-banner fade-up">
+            <span class="campaign-icon">🎁</span>
+            <div class="campaign-text">
+                <span>19 MART - 30 MART</span><br>
+                <span>BU TARİXLƏRDƏ REZERV EDƏNƏ</span>
+            </div>
+            <span class="campaign-highlight">5% ENDİRİM</span>
+            <span class="campaign-icon">✨</span>
+        </div>
+
+        <!-- Header -->
+        <div class="header">
+            <div class="hotel-name">MY WAY VILLAGE Hotel</div>
+            <div class="bayram-row">
+                <div class="novruz-badge">
+                    <span class="badge-icon">🌱</span>
+                    <span>NOVRUZ</span>
+                </div>
+                <div class="ramadan-badge">
+                    <span class="badge-icon">🌙</span>
+                    <span>RAMAZAN</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service cards -->
+        <div class="service-grid">
+            <div class="service-card live-music fade-up delay-1">
+                <span class="service-icon">🎵</span>
+                <span class="service-text">Canlı musiqi Bayram Günləri</span>
+                <span class="service-badge">LIVE</span>
+            </div>
+            <div class="service-card fade-up delay-2">
+                <span class="service-icon">🍽️</span>
+                <span class="service-text">Restoran 09:00 - 23:00 </span>
+                <span class="service-badge">AÇIQ</span>
+            </div>
+        </div>
+
+        <!-- WHATSAPP ƏLAQƏ BÖLMƏSİ -->
+        <a href="https://wa.me/994503099392?text=Salam!%20My%20Way%20Village%20otel%20və%20bayram%20menyusu%20haqqında%20məlumat%20almaq%20istəyirəm." class="whatsapp-section fade-up delay-3" target="_blank">
+            <div class="wa-icon-large">📱</div>
+            <div class="wa-number">050 309 93 92</div>
+            <div class="wa-icon-large">💬</div>
+        </a>
+
+        <!-- Rooms heading -->
+        <div class="section-head">
+            <div class="head-ornament"></div>
+            <h2>Bayram otaqları</h2>
+            <div class="head-ornament"></div>
+        </div>
+
+        <!-- Room list -->
+        <div class="rooms-container">
+            <div class="room-item fade-up delay-1">
+                <div class="room-info">
+                    <h3>Standart kottec</h3>
+                    <p>2 nəfər • səhər yeməyi, sauna</p>
+                </div>
+                <div class="room-price">200 AZN</div>
+            </div>
+            <div class="room-item fade-up delay-2">
+                <div class="room-info">
+                    <h3>VIP Duplex</h3>
+                    <p>2 nəfər • ikimərtəbə, səhər yeməyi, sauna</p>
+                </div>
+                <div class="room-price">250 AZN</div>
+            </div>
+            <div class="room-item fade-up delay-3">
+                <div class="room-info">
+                    <h3>VIP Duplex + vannalı</h3>
+                    <p>2 nəfər • xüsusi vanna, səhər yeməyi, sauna</p>
+                </div>
+                <div class="room-price">270 AZN</div>
+            </div>
+            <div class="room-item fade-up delay-4">
+                <div class="room-info">
+                    <h3>VIP Cakkuzi (2 nəfər)</h3>
+                    <p>jakkuzi, premium, səhər yeməyi, sauna</p>
+                </div>
+                <div class="room-price">280 AZN</div>
+            </div>
+            <div class="room-item fade-up delay-5">
+                <div class="room-info">
+                    <h3>VIP Ailə kotteci</h3>
+                    <p>4 nəfər, geniş, səhər yeməyi, sauna</p>
+                </div>
+                <div class="room-price">350 AZN</div>
+            </div>
+            <div class="room-item fade-up delay-6">
+                <div class="room-info">
+                    <h3>VIP Cakkuzi 4 nəfər</h3>
+                    <p>4 nəfər + jakkuzi, səhər yeməyi, sauna</p>
+                </div>
+                <div class="room-price">380 AZN</div>
+            </div>
+        </div>
+
+        <!-- Restaurant highlight -->
+        <div class="restaurant-showcase fade-up">
+            <div class="showcase-title">🏵️ BAYRAM RESTORANI 🏵️</div>
+            <div class="showcase-sub" style="color: #efd9a4; text-align: center; font-size: 1.1rem; background: rgba(0,0,0,0.35); padding: 10px; border-radius: 60px; margin-bottom: 20px;">Novruz & Ramazan xüsusi menyuları</div>
+            <div class="menu-tags">
+                <span class="tag">🥗 Salatlar</span>
+                <span class="tag">🔥 İsti yeməklər</span>
+                <span class="tag">🍢 Kabablar</span>
+                <span class="tag">🍚 Plov</span>
+                <span class="tag">🥧 Paxlava</span>
+                <span class="tag">☕ Çay</span>
+                
+            </div>
+        </div>
+
+        <!-- Sweets row -->
+        <div class="sweets-row fade-up">
+            <span class="sweet-item">🌱 Səməni</span>
+            <span class="sweet-item">🍪 Şəkərbura</span>
+            <span class="sweet-item">🥮 Paxlava</span>
+            
+            <span class="sweet-item">🍰 Şərniyyat</span>
+        </div>
+
+        <!-- Full menu CTA -->
+        <div class="fullmenu-btn fade-up" id="showFullMenuBtn">
+            <a href="javascript:void(0);">📋 RESTORANIN TAM MENYUSU ➡️</a>
+        </div>
+
+        <!-- GİZLİ TAM MENYU - YALNIZ SƏNİN YEMƏKLƏRİN -->
+        <div class="full-menu-section" id="fullMenuSection">
+            <div class="full-menu-inner">
+                <!-- SALATLAR -->
+                <div class="menu-category">
+                    <div class="category-title"><span>🥗</span> Salatlar</div>
+                    <div class="menu-item"><span class="item-name">Badımcan suxarılanmış</span><span class="item-price">5 AZN</span></div>
+                    <div class="menu-item"><span class="item-name">Pomidor xiyar</span><span class="item-price">5 AZN</span></div>
+                    <div class="menu-item"><span class="item-name">Çoban salatı</span><span class="item-price">6 AZN</span></div>
+                    <div class="menu-item"><span class="item-name">Manqal salatı</span><span class="item-price">5 AZN</span></div>
+                </div>
+
+                <!-- SULU YEMƏKLƏR -->
+                <div class="menu-category">
+                    <div class="category-title"><span>🍜</span> Sulu Yeməklər</div>
+                    <div class="menu-item"><span class="item-name">Düşbərə</span><span class="item-price">5 AZN</span></div>
+                    <div class="menu-item"><span class="item-name">Toyuq supu</span><span class="item-price">5 AZN</span></div>
+                    <div class="menu-item"><span class="item-name">Mərci şorbası</span><span class="item-price">5 AZN</span></div>
+                </div>
+
+                <!-- İSTİ YEMƏKLƏR -->
+                <div class="menu-category">
+                    <div class="category-title"><span>🔥</span> İsti Yeməklər</div>
+                    <div class="menu-item"><span class="item-name">Şəki pitisi</span><span class="item-price">15 AZN</span></div>
+                    <div class="menu-item"><span class="item-name">Dopuda dolma</span><span class="item-price">14 AZN</span></div>
+                    <div class="menu-item"><span class="item-name">Quzu soyutma</span><span class="item-price">13 AZN</span></div>
+                    <div class="menu-item"><span class="item-name">Tabaka</span><span class="item-price">25 AZN</span></div>
+                    <div class="menu-item"><span class="item-name">Övrüştə</span><span class="item-price">26 AZN</span></div>
+                    <div class="menu-item"><span class="item-name">Toyuq çığırtması</span><span class="item-price">25 AZN</span></div>
+                    <div class="menu-item"><span class="item-name">Qaymaqlı can əti</span><span class="item-price">15 AZN</span></div>
+                    <div class="menu-item"><span class="item-name">Pomidor yumurta</span><span class="item-price">6 AZN</span></div>
+                    <div class="menu-item"><span class="item-name">Yarpaq xəngəli</span><span class="item-price">6 AZN</span></div>
+                    <div class="menu-item"><span class="item-name">Gürzə xəngəl</span><span class="item-price">7 AZN</span></div>
+                    <div class="menu-item"><span class="item-name">Naggets</span><span class="item-price">5 AZN</span></div>
+                    <div class="menu-item"><span class="item-name">Düyü</span><span class="item-price">4 AZN</span></div>
+                    <div class="menu-item"><span class="item-name">Free</span><span class="item-price">5 AZN</span></div>
+                    <div class="menu-item"><span class="item-name">Farel balıq</span><span class="item-price">16 AZN</span></div>
+                </div>
+
+                <!-- SAC YEMƏKLƏRİ -->
+                <div class="menu-category">
+                    <div class="category-title"><span>🍳</span> Sac Yeməkləri</div>
+                    <div class="menu-item"><span class="item-name">Quzu sac</span><span class="item-price">36 AZN</span></div>
+                    <div class="menu-item"><span class="item-name">Dana sac</span><span class="item-price">35 AZN</span></div>
+                    <div class="menu-item"><span class="item-name">Toyuq sac</span><span class="item-price">30 AZN</span></div>
+                    <div class="menu-item"><span class="item-name">Tərəvəz sac</span><span class="item-price">25 AZN</span></div>
+                </div>
+
+                <!-- KABABLAR -->
+                <div class="menu-category">
+                    <div class="category-title"><span>🍢</span> Kabablar</div>
+                    <div class="menu-item"><span class="item-name">Tikə kabab</span><span class="item-price">16 AZN</span></div>
+                    <div class="menu-item"><span class="item-name">Lülə kabab</span><span class="item-price">15 AZN</span></div>
+                    <div class="menu-item"><span class="item-name">Toyuq kabab</span><span class="item-price">7 AZN</span></div>
+                    <div class="menu-item"><span class="item-name">İçalat kabab</span><span class="item-price">6 AZN</span></div>
+                    <div class="menu-item"><span class="item-name">Pomidor</span><span class="item-price">2 AZN</span></div>
+                    <div class="menu-item"><span class="item-name">Kartof</span><span class="item-price">5 AZN</span></div>
+                    <div class="menu-item"><span class="item-name">Bibər</span><span class="item-price">2 AZN</span></div>
+                </div>
+
+                <!-- PLOV (SİFARİŞLƏ) -->
+                <div class="menu-category">
+                    <div class="category-title"><span>🍚</span> Plov (Sifarişlə)</div>
+                    <div class="menu-item"><span class="item-name">Döşəməli plov</span><span class="item-price">45 AZN</span></div>
+                </div>
+
+                <!-- ƏLAVƏLƏR -->
+                <div class="menu-category">
+                    <div class="category-title"><span>🧂</span> Əlavələr</div>
+                    <div class="menu-item"><span class="item-name">Qatıq</span><span class="item-price">3 AZN</span></div>
+                    <div class="menu-item"><span class="item-name">Göyərti</span><span class="item-price">3 AZN</span></div>
+                    <div class="menu-item"><span class="item-name">Pendir ağ</span><span class="item-price">5 AZN</span></div>
+                    <div class="menu-item"><span class="item-name">Holland pendiri</span><span class="item-price">5 AZN</span></div>
+                    <div class="menu-item"><span class="item-name">Qarpız</span><span class="item-price">4 AZN</span></div>
+                    <div class="menu-item"><span class="item-name">Yemiş</span><span class="item-price">4 AZN</span></div>
+                    <div class="menu-item"><span class="item-name">Turşu xiyar</span><span class="item-price">3 AZN</span></div>
+                    <div class="menu-item"><span class="item-name">Sirçə soğan</span><span class="item-price">4 AZN</span></div>
+                    <div class="menu-item"><span class="item-name">Kələm turşusu</span><span class="item-price">3 AZN</span></div>
+                    <div class="menu-item"><span class="item-name">Çetkap</span><span class="item-price">1 AZN</span></div>
+                    <div class="menu-item"><span class="item-name">Mayanez</span><span class="item-price">1 AZN</span></div>
+                </div>
+
+                <!-- İÇKİLƏR -->
+                <div class="menu-category">
+                    <div class="category-title"><span>🥤</span> İçkilər</div>
+                    <div class="menu-item"><span class="item-name">Sirab qazlı</span><span class="item-price">3 AZN</span></div>
+                    <div class="menu-item"><span class="item-name">Sirab qazsız</span><span class="item-price">3 AZN</span></div>
+                    <div class="menu-item"><span class="item-name">Cola (banka)</span><span class="item-price">3 AZN</span></div>
+                    <div class="menu-item"><span class="item-name">Fanta (banka)</span><span class="item-price">3 AZN</span></div>
+                    <div class="menu-item"><span class="item-name">Badamlı qazlı</span><span class="item-price">3 AZN</span></div>
+                    <div class="menu-item"><span class="item-name">Badamlı qazsız</span><span class="item-price">3 AZN</span></div>
+                    <div class="menu-item"><span class="item-name">Meyvə şirəsi</span><span class="item-price">5 AZN</span></div>
+                </div>
+
+                <!-- ÇAY/KOFE -->
+                <div class="menu-category">
+                    <div class="category-title"><span>☕</span> Çay/Kofe</div>
+                    <div class="menu-item"><span class="item-name">Çay sadə</span><span class="item-price">10 AZN</span></div>
+                    <div class="menu-item"><span class="item-name">Çay mürəbbə ilə</span><span class="item-price">15 AZN</span></div>
+                    <div class="menu-item"><span class="item-name">Çay yaşıl</span><span class="item-price">5 AZN</span></div>
+                    <div class="menu-item"><span class="item-name">Çay samavar</span><span class="item-price">40 AZN</span></div>
+                </div>
+
+                <div class="close-menu" id="closeMenuBtn">✕ Menyunu bağla</div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="info-footer fade-up">
+            <div class="address">
+                📍 İsmayıllı, Cayqovuşan kəndi<br>
+                <span style="font-weight: 400;">🌳 Təbiət qoynunda bayram istirahəti</span>
+            </div>
+            <div class="highlight">
+                ✦ CANLI MUSİQİ  ✦
+            </div>
+            <div class="footer-phone">
+                <a href="https://wa.me/994503099392?text=Salam!%20My%20Way%20Village%20otel%20rezervasiya%20etmək%20istəyirəm." target="_blank">📞 050 309 93 92</a>
+            </div>
+            <div class="quote">
+                “Rezervasiya üçün əlaqə saxlayin”
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            // Çiçək yağışı
+            const rainContainer = document.getElementById('flowerRain');
+            const symbols = ['🌸', '🌼', '🌱', '🌙', '⭐', '🌸', '🌼', '🌺', '🍃', '✨', '🌿', '🌻'];
+            
+            setInterval(() => {
+                const flower = document.createElement('div');
+                flower.className = 'flower';
+                flower.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
+                flower.style.left = Math.random() * 100 + '%';
+                flower.style.top = '-5%';
+                flower.style.fontSize = (0.8 + Math.random() * 1.5) + 'rem';
+                flower.style.animationDuration = (6 + Math.random() * 10) + 's';
+                flower.style.opacity = 0.15 + Math.random() * 0.45;
+                rainContainer.appendChild(flower);
+                setTimeout(() => flower.remove(), 15000);
+            }, 350);
+
+            // Tam menyu aç/bğla
+            const showBtn = document.getElementById('showFullMenuBtn');
+            const fullMenu = document.getElementById('fullMenuSection');
+            const closeBtn = document.getElementById('closeMenuBtn');
+
+            showBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                fullMenu.classList.add('show');
+                setTimeout(() => fullMenu.scrollIntoView({ behavior: 'smooth', block: 'start' }), 200);
+            });
+
+            closeBtn.addEventListener('click', () => fullMenu.classList.remove('show'));
+            
+            document.addEventListener('click', (e) => {
+                if (!fullMenu.contains(e.target) && !showBtn.contains(e.target) && fullMenu.classList.contains('show')) {
+                    fullMenu.classList.remove('show');
+                }
+            });
+        })();
+    </script>
+</body>
+</html>
